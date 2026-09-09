@@ -16,6 +16,7 @@ npm run dev     # buka http://localhost:5173
 npm run build   # hasil siap-upload ada di folder dist/
 npm run preview # mengecek hasil build secara lokal
 npm run cv      # membangkitkan ulang CV (public/cv.html + public/cv-aaron.pdf)
+npm run shot -- <url> <nama> [lebar] [tinggi]   # potret situs jadi gambar kartu
 ```
 
 ---
@@ -105,6 +106,25 @@ akan pernah rusak. Titik fokus gambar bisa digeser lewat `object-position` pada
 Saran ukuran: sisi terpanjang sekitar 1200–1600 px, rasio potret, di bawah ~400 KB.
 
 ### Menambah screenshot proyek
+
+Kalau proyeknya **sudah online**, tidak perlu memotret manual — ada skrip pemotret otomatis:
+
+```bash
+npm run shot -- https://karinakas.com karinakas 1680 720
+```
+
+Chrome dijalankan tanpa jendela, layar pembuka (tombol "Lewati"/"Skip") diklik otomatis, lalu
+halamannya dipotret dan disimpan ke `public/projects/karinakas.jpg`. Skrip akan menyebutkan baris
+yang perlu kamu tempel ke `content.js`.
+
+Samakan ukurannya dengan bingkai kartunya, supaya gambarnya tidak terpotong:
+
+| Jenis kartu               | Rasio | Perintah      |
+| ------------------------- | ----- | ------------- |
+| biasa                     | 16:10 | `1600 1000`   |
+| unggulan (`featured: true`) | 21:9  | `1680 720`    |
+
+Kalau ingin memasang gambar sendiri:
 
 1. Simpan gambar di `public/projects/nama-proyek.png`
 2. Isi field `image: '/projects/nama-proyek.png'` pada proyek tersebut

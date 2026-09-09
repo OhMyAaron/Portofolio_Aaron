@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "cv": "node scripts/build-cv.mjs",
+    "shot": "node scripts/screenshot.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },

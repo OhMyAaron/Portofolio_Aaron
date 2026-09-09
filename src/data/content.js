@@ -199,13 +199,15 @@ export const projects = [
       'Proyek tugas akhir: REST API Laravel dengan dashboard admin React. Mencakup autentikasi ' +
       'berbasis peran, manajemen data master, serta notifikasi email otomatis.',
     tags: ['Laravel', 'React', 'MySQL', 'REST API'],
-    // Kedua repo ini masih PRIVATE. Selama belum diubah jadi public, pengunjung
-    // yang mengekliknya akan mendapat halaman 404 GitHub.
+    // Situs live sengaja ditaruh paling depan: tautan pertama juga dipasang
+    // pada gambar kartunya, dan kedua repo di bawah masih PRIVATE — kalau
+    // salah satunya jadi tautan utama, pengunjung akan mendarat di 404 GitHub.
     links: [
+      { label: 'Kunjungi Situs', href: 'https://karinakas.com' },
       { label: 'Frontend', href: 'https://github.com/OhMyAaron/karinakas_frontend' },
       { label: 'Backend', href: 'https://github.com/OhMyAaron/karinakas_backend' },
     ],
-    image: '',
+    image: '/projects/karinakas.jpg',
     featured: true,
   },
   {
