@@ -215,17 +215,30 @@ export const projects = [
     featured: true,
   },
   {
-    title: 'GYM — Membership Management',
+    title: 'Gymfit — Membership Management',
     category: 'Fullstack',
     year: '2024',
     desc:
-      'A web application for managing a fitness center across three membership tiers (Basic, ' +
-      'Pro, and Premium). Covers personal trainer records, product inventory, and transaction ' +
-      'logging, with a separate administrative dashboard for plans, payments, members, coaches, ' +
-      'and reports.',
+      'A web application for a fitness center covering three membership tiers (Basic, Pro, and ' +
+      'Premium). Members register through a plan-specific form that captures personal details ' +
+      'and class selection, while a separate administrator area manages plans, payments, ' +
+      'members, coaches, product inventory, and reports.',
     tags: ['Laravel', 'Blade', 'Tailwind CSS', 'MySQL'],
     links: [{ label: 'Repository', href: 'https://github.com/OhMyAaron/PemrogramanWeb_GYM' }],
-    image: '',
+    image: '/projects/gymfit.jpg',
+  },
+  {
+    title: 'CariJasa — Mobile App Design',
+    category: 'UI/UX Design',
+    year: '2024 — 2025',
+    desc:
+      'A self-initiated interface design for a mobile application that gives small local ' +
+      'businesses a single place to promote their services. Covers role selection at onboarding ' +
+      '(service provider or customer), a category-based discovery feed, and a service detail ' +
+      'screen carrying ratings, distance, operating hours, lead time, and direct contact.',
+    tags: ['Figma', 'UI/UX Design', 'Mobile App'],
+    links: [], // rancangan statis; belum ada prototipe interaktif untuk ditautkan
+    image: '/projects/carijasa.jpg',
   },
   {
     title: 'This Portfolio Website',
