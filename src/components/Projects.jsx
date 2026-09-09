@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { projects } from '../data/content'
 import { useTilt } from '../hooks/useAnimations'
+import Gallery from './Gallery'
 import { ArrowUpRight } from './Icons'
 import Reveal from './Reveal'
 import SectionHead from './SectionHead'
@@ -8,12 +9,15 @@ import SectionHead from './SectionHead'
 function ProjectCard({ project, index }) {
   const ref = useTilt({ max: 5 })
   const primary = project.links[0]
+  const { images } = project
+  const hasGallery = images.length > 1
 
-  const thumb = project.image ? (
-    <img src={project.image} alt={`Screenshot of ${project.title}`} loading="lazy" />
-  ) : (
-    <span className="card__ph">{project.title.slice(0, 2).toUpperCase()}</span>
-  )
+  const thumb =
+    images.length === 1 ? (
+      <img src={images[0]} alt={`Screenshot of ${project.title}`} loading="lazy" />
+    ) : (
+      <span className="card__ph">{project.title.slice(0, 2).toUpperCase()}</span>
+    )
 
   return (
     <Reveal className={project.featured ? 'card--featured' : ''} delay={(index % 3) * 0.09} y={44}>
@@ -24,9 +28,15 @@ function ProjectCard({ project, index }) {
         <span className="card__spot" />
         <span className="card__year mono">{project.year}</span>
 
-        {/* Gambarnya jadi tautan ke tautan utama kalau ada — di situlah kursor
-            "VIEW" muncul. Kalau proyeknya tanpa tautan, cukup <div> biasa. */}
-        {primary ? (
+        {/* Kalau gambarnya lebih dari satu, area gambar jadi galeri yang bisa
+            digeser — jadi tidak boleh dibungkus <a>, karena tombol panah dan
+            titik penandanya sendiri sudah interaktif. Untuk gambar tunggal,
+            area ini tetap jadi tautan ke repo/situs proyeknya. */}
+        {hasGallery ? (
+          <div className="card__thumb">
+            <Gallery images={images} title={project.title} />
+          </div>
+        ) : primary ? (
           <a
             className="card__thumb"
             href={primary.href}

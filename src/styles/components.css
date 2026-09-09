@@ -632,7 +632,7 @@
   transition: transform 0.9s var(--ease);
 }
 
-.card:hover .card__thumb img {
+.card:hover .card__thumb > img {
   transform: scale(1.07);
 }
 
@@ -651,6 +651,135 @@
 
 .card:hover .card__ph {
   transform: scale(1.08);
+}
+
+/* ----- galeri gambar di dalam kartu ----- */
+
+.gal {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.gal__track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.gal__track::-webkit-scrollbar {
+  display: none;
+}
+
+.gal__slide {
+  flex: 0 0 100%;
+  height: 100%;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+
+.gal__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+}
+
+/* tombol panah — muncul saat kursor berada di atas kartu */
+.gal__nav {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  z-index: 4;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(11, 11, 18, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  transition:
+    opacity 0.3s var(--ease),
+    background-color 0.3s var(--ease),
+    transform 0.2s var(--ease);
+}
+
+.card:hover .gal__nav,
+.gal__nav:focus-visible {
+  opacity: 1;
+}
+
+.gal__nav:hover {
+  background: rgba(var(--a1-rgb), 0.9);
+  color: #0b0b12;
+}
+
+.gal__nav:active {
+  transform: translateY(-50%) scale(0.9);
+}
+
+.gal__nav[disabled] {
+  opacity: 0 !important;
+  pointer-events: none;
+}
+
+.gal__nav--prev {
+  left: 12px;
+}
+
+.gal__nav--next {
+  right: 12px;
+}
+
+/* titik penanda posisi */
+.gal__dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  translate: -50% 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 11px;
+  border-radius: 99px;
+  background: rgba(11, 11, 18, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.gal__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.45);
+  transition:
+    width 0.35s var(--ease),
+    background-color 0.35s var(--ease);
+}
+
+.gal__dot:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.gal__dot.is-on {
+  width: 18px;
+  background: #fff;
+}
+
+/* di perangkat sentuh panahnya tidak berguna — geser saja langsung */
+@media (hover: none) {
+  .gal__nav {
+    display: none;
+  }
 }
 
 .card__year {

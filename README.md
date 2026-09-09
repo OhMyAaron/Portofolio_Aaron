@@ -36,7 +36,7 @@ Hampir semua isi website ada di **satu file**: [`src/data/content.js`](src/data/
 | `about`         | paragraf perkenalan (pakai `**teks**` untuk menebalkan)               |
 | `stackGroups`   | daftar keahlian per kategori                                          |
 | `projects`      | daftar proyek — lihat catatan di bawah                                |
-| `timeline`      | riwayat, dikelompokkan jadi tab: `Kerja`, `Organisasi`, `Pendidikan`  |
+| `timeline`      | riwayat, dikelompokkan jadi tab: `Work`, `Organizations`, `Education` |
 | `facts`         | kartu data diri di bagian "Tentang"                                   |
 
 ### Catatan penting
@@ -53,8 +53,9 @@ Hampir semua isi website ada di **satu file**: [`src/data/content.js`](src/data/
 - **Daftar proyek berisi tiga item** dan sengaja hanya yang nyata. Tambahkan sendiri dengan
   menyalin salah satu blok di `projects`. Pindahkan `featured: true` ke proyek mana pun
   yang ingin ditampilkan paling menonjol (kartunya melebar dua kolom).
-- Kartu **Sistem Monitoring Proyek** sengaja tidak memuat nama proyek internal PLN, angka,
-  maupun tangkapan layar — hanya masalah yang diselesaikan dan teknologi yang dipakai.
+- Kartu **Project Monitoring System** memuat tangkapan layar sistem internal PLN. Data yang
+  terlihat di dalamnya (nama proyek, nilai anggaran, nama lead) tampak data contoh, bukan data
+  produksi — tapi tetap sebaiknya dikonfirmasi ke pembimbing magang sebelum dibiarkan online.
 - Menambah kategori riwayat cukup dengan menambah kunci baru di `timeline` — tab-nya
   muncul otomatis.
 
@@ -126,11 +127,39 @@ Samakan ukurannya dengan bingkai kartunya, supaya gambarnya tidak terpotong:
 
 Kalau ingin memasang gambar sendiri:
 
-1. Simpan gambar di `public/projects/nama-proyek.png`
-2. Isi field `image: '/projects/nama-proyek.png'` pada proyek tersebut
+1. Simpan gambar di `public/projects/nama-proyek.jpg`
+2. Tambahkan path-nya ke daftar `images` pada proyek tersebut
 
-Kalau `image` dikosongkan, kartunya otomatis memakai placeholder inisial bergradasi — tetap rapi.
+### Galeri: lebih dari satu gambar per proyek
+
+`images` berupa daftar, bukan satu path:
+
+```js
+images: [
+  '/projects/pln-dashboard.jpg',
+  '/projects/pln-projects.jpg',
+  '/projects/pln-landing.jpg',
+],
+```
+
+- **Satu gambar** — tampil biasa, dan area gambarnya jadi tautan ke `links[0]`.
+- **Dua gambar atau lebih** — otomatis jadi galeri yang bisa digeser: tombol panah muncul saat
+  kursor berada di atas kartu, titik penanda di bawah, dan di ponsel cukup digeser dengan jari.
+  Area gambarnya tidak lagi jadi tautan, karena tombol galerinya sendiri sudah interaktif —
+  tautan proyeknya tetap tersedia sebagai tombol di bawah kartu.
+- **Daftar kosong** (`images: []`) — memakai placeholder inisial bergradasi.
+
+Gambar pertama adalah sampul kartunya, jadi taruh yang paling kuat di urutan pertama.
+
 Beri `featured: true` untuk membuat satu kartu melebar dua kolom di layar besar.
+
+### Membingkai tangkapan layar yang rasionya tidak cocok
+
+Tangkapan layar desktop biasanya lebih lebar daripada bingkai kartu (16:10). Kalau langsung
+dipakai, sisi kiri-kanannya terpotong dan sidebar aplikasi bisa hilang. Solusinya: letakkan
+gambar di atas latar berwarna, jangan dipotong. Semua gambar PLN, Gymfit, dan CariJasa dibuat
+dengan cara ini — gambar diberi sudut membulat dan bayangan, lalu ditempatkan di tengah kanvas
+1600×1000 dengan latar yang senada dengan palet aplikasinya.
 
 ### Tautan pada kartu proyek
 

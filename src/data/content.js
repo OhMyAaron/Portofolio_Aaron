@@ -174,8 +174,9 @@ export const stackGroups = [
    Only genuine work is listed here. Add your own by copying one of the
    blocks below.
 
-   image    : place a screenshot in /public/projects/name.jpg and set its path.
-              If left empty, a gradient monogram placeholder is used instead.
+   images   : list of screenshots in /public/projects/. More than one turns
+              the card image into a swipeable gallery with arrows and dots.
+              An empty list falls back to a gradient monogram placeholder.
    links    : may hold several entries; the first one is also applied to the
               card image. Use an empty array for projects with no public link.
    featured : true widens the card across two columns on large screens.
@@ -186,13 +187,17 @@ export const projects = [
     category: 'Fullstack',
     year: '2026',
     desc:
-      'Developed during an internship with the Information Technology Systems Division of ' +
-      'PT PLN (Persero) Head Office. A system for tracking the progress of ongoing projects so ' +
-      'that their status can be reviewed in a single view, together with a development plan for ' +
-      'an AI-based dashboard.',
+      'Built during an internship with the Information Technology Systems Division of PT PLN ' +
+      '(Persero) Head Office. An internal dashboard for tracking software development projects: ' +
+      'requirement progress from design through deployment, distribution charts, project ' +
+      'timelines and budgets, and a reporting view.',
     tags: ['React', 'Laravel', 'MySQL', 'Dashboard'],
     links: [], // internal corporate system; no public repository
-    image: '',
+    images: [
+      '/projects/pln-dashboard.jpg',
+      '/projects/pln-projects.jpg',
+      '/projects/pln-landing.jpg',
+    ],
   },
   {
     title: 'Karinakas — Information System',
@@ -211,7 +216,7 @@ export const projects = [
       { label: 'Frontend', href: 'https://github.com/OhMyAaron/karinakas_frontend' },
       { label: 'Backend', href: 'https://github.com/OhMyAaron/karinakas_backend' },
     ],
-    image: '/projects/karinakas.jpg',
+    images: ['/projects/karinakas.jpg'],
     featured: true,
   },
   {
@@ -225,20 +230,30 @@ export const projects = [
       'members, coaches, product inventory, and reports.',
     tags: ['Laravel', 'Blade', 'Tailwind CSS', 'MySQL'],
     links: [{ label: 'Repository', href: 'https://github.com/OhMyAaron/PemrogramanWeb_GYM' }],
-    image: '/projects/gymfit.jpg',
+    images: [
+      '/projects/gymfit-home.jpg',
+      '/projects/gymfit-membership.jpg',
+      '/projects/gymfit-login.jpg',
+    ],
   },
   {
     title: 'CariJasa — Mobile App Design',
     category: 'UI/UX Design',
     year: '2024 — 2025',
     desc:
-      'A self-initiated interface design for a mobile application that gives small local ' +
-      'businesses a single place to promote their services. Covers role selection at onboarding ' +
-      '(service provider or customer), a category-based discovery feed, and a service detail ' +
-      'screen carrying ratings, distance, operating hours, lead time, and direct contact.',
+      'An interface design submitted to the Startup Incubator program at Atma Jaya Yogyakarta ' +
+      'University, for a mobile application that gives small local businesses a single place to ' +
+      'promote their services. Covers role selection at onboarding (service provider or ' +
+      'customer), a category-based discovery feed, and a service detail screen carrying ' +
+      'ratings, distance, operating hours, lead time, and direct contact.',
     tags: ['Figma', 'UI/UX Design', 'Mobile App'],
     links: [], // rancangan statis; belum ada prototipe interaktif untuk ditautkan
-    image: '/projects/carijasa.jpg',
+    images: [
+      '/projects/carijasa.jpg',
+      '/projects/carijasa-onboarding.jpg',
+      '/projects/carijasa-home.jpg',
+      '/projects/carijasa-detail.jpg',
+    ],
   },
   {
     title: 'This Portfolio Website',
@@ -249,7 +264,7 @@ export const projects = [
       'requestAnimationFrame, without an animation library, to keep the page light.',
     tags: ['React', 'Vite', 'CSS'],
     links: [{ label: 'Repository', href: 'https://github.com/OhMyAaron/Portofolio_Aaron' }],
-    image: '',
+    images: [],
   },
 
   /* ===== COPY THE BLOCK BELOW TO ADD A NEW PROJECT =====
@@ -268,7 +283,7 @@ export const projects = [
     links: [                                // may be empty: links: []
       { label: 'Repository', href: 'https://github.com/OhMyAaron/repo-name' },
     ],
-    image: '',        // '/projects/file-name.jpg' if you have a screenshot
+    images: [],       // ['/projects/a.jpg', '/projects/b.jpg'] -> jadi galeri geser
     // featured: true,   // enable to widen the card across two columns
   },
 
