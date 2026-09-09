@@ -93,7 +93,7 @@ export default function Cursor() {
     <>
       <div ref={dotRef} className="cursor" aria-hidden="true" />
       <div ref={ringRef} className="cursor-ring" aria-hidden="true">
-        <span className="cursor-ring__label">LIHAT</span>
+        <span className="cursor-ring__label">VIEW</span>
       </div>
     </>
   )

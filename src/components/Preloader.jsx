@@ -37,7 +37,7 @@ export default function Preloader({ onDone }) {
         <div className="preloader__bar">
           <div className="preloader__fill" style={{ '--p': count / 100 }} />
         </div>
-        <div className="preloader__label mono">Menyiapkan portofolio</div>
+        <div className="preloader__label mono">Preparing portfolio</div>
       </div>
     </div>
   )

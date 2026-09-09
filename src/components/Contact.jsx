@@ -18,7 +18,7 @@ export default function Contact() {
       await navigator.clipboard.writeText(profile.email)
       setCopied(true)
     } catch {
-      // clipboard API bisa diblokir (misalnya di http) — buka email client saja
+      // the clipboard API may be blocked (e.g. over plain http) — fall back to mailto
       window.location.href = `mailto:${profile.email}`
     }
   }
@@ -31,22 +31,22 @@ export default function Contact() {
         </span>
 
         <p className="head__eyebrow mono" style={{ justifyContent: 'center', marginBottom: 18 }}>
-          Kontak
+          Contact
         </p>
 
         <h2 className="contact__title">
-          Punya ide? <span className="grad-text">Mari dibicarakan.</span>
+          Have a project in mind? <span className="grad-text">I would be glad to hear it.</span>
         </h2>
 
         <p className="contact__desc">
-          Saya terbuka untuk proyek freelance, kerja penuh waktu, atau sekadar berdiskusi soal
-          teknologi. Paling cepat lewat WhatsApp — balasan biasanya dalam 1×24 jam.
+          I am open to freelance projects, full-time roles, or simply a conversation about
+          technology. WhatsApp is the quickest route — I normally reply within 24 hours.
         </p>
 
         <div className="contact__actions">
           <Magnetic strength={0.25}>
             <a className="btn btn--solid" href={`mailto:${profile.email}`}>
-              Kirim Email
+              Send Email
               <ArrowUpRight className="btn__icon" width={18} height={18} />
             </a>
           </Magnetic>
@@ -70,7 +70,7 @@ export default function Contact() {
             aria-live="polite"
           >
             {copied ? <Check width={16} height={16} /> : <Copy width={16} height={16} />}
-            {copied ? 'Tersalin!' : profile.email}
+            {copied ? 'Copied' : profile.email}
           </button>
         </div>
       </Reveal>

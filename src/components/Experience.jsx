@@ -69,12 +69,12 @@ export default function Experience() {
   return (
     <section className="section shell" id="experience">
       <SectionHead
-        eyebrow="Riwayat"
-        title="Perjalanan sejauh ini"
-        desc="Tempat saya belajar, memimpin, dan sesekali gagal lalu memperbaikinya."
+        eyebrow="Experience"
+        title="The path so far"
+        desc="Where I have learned, led, and occasionally failed before correcting course."
       />
 
-      <div className="projects__filters" role="tablist" aria-label="Kategori riwayat">
+      <div className="projects__filters" role="tablist" aria-label="Experience categories">
         {tabs.map((name) => (
           <button
             key={name}

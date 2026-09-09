@@ -8,7 +8,7 @@ export default function Marquee() {
   const items = [...marqueeItems, ...marqueeItems]
 
   return (
-    <div className="marquee" aria-label="Teknologi yang saya pakai">
+    <div className="marquee" aria-label="Technologies I work with">
       <div className="marquee__track">
         {items.map((item, i) => (
           <span className="marquee__item" key={i} aria-hidden={i >= marqueeItems.length}>

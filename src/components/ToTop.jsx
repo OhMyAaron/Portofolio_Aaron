@@ -8,7 +8,7 @@ export default function ToTop() {
     <button
       type="button"
       className={`totop ${show ? 'is-on' : ''}`}
-      aria-label="Kembali ke atas"
+      aria-label="Back to top"
       tabIndex={show ? 0 : -1}
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
     >

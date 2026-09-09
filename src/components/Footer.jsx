@@ -5,10 +5,10 @@ export default function Footer() {
     <footer className="footer">
       <div className="shell footer__row">
         <p>
-          © {new Date().getFullYear()} {profile.fullName}. Dibuat dengan React + Vite.
+          © {new Date().getFullYear()} {profile.fullName}. Built with React and Vite.
         </p>
 
-        <nav className="footer__links" aria-label="Tautan sosial">
+        <nav className="footer__links" aria-label="Social links">
           {profile.socials.map((s) => (
             <a
               key={s.label}

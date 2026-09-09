@@ -59,7 +59,7 @@ const linkedin = profile.socials.find((s) => s.icon === 'linkedin')
 const github = profile.socials.find((s) => s.icon === 'github')
 
 const html = `<!doctype html>
-<html lang="id">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <title>CV — ${esc(profile.fullName)}</title>
@@ -126,12 +126,12 @@ const html = `<!doctype html>
     </div>
   </header>
 
-${section('Ringkasan', `<p class="summary">${esc(cvSummary)}</p>`)}
-${section('Pendidikan', timeline.Pendidikan.map(entry).join(''))}
-${section('Pengalaman Kerja', timeline.Kerja.map(entry).join(''))}
-${section('Pengalaman Organisasi', timeline.Organisasi.map(entry).join(''))}
+${section('Summary', `<p class="summary">${esc(cvSummary)}</p>`)}
+${section('Education', timeline.Education.map(entry).join(''))}
+${section('Work Experience', timeline.Work.map(entry).join(''))}
+${section('Organizational Experience', timeline.Organizations.map(entry).join(''))}
 ${section(
-  'Kemampuan',
+  'Skills',
   stackGroups
     .map(
       (g) => `

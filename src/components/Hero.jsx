@@ -72,7 +72,7 @@ export default function Hero({ ready }) {
                   scrollTo('work')
                 }}
               >
-                Lihat Proyek
+                View Projects
                 <ArrowRight className="btn__icon" width={18} height={18} />
               </a>
             </Magnetic>
@@ -81,7 +81,7 @@ export default function Hero({ ready }) {
             {profile.cv && (
               <Magnetic strength={0.25}>
                 <a className="btn" href={profile.cv} download>
-                  Unduh CV
+                  Download CV
                   <Download className="btn__icon" width={18} height={18} />
                 </a>
               </Magnetic>
@@ -113,7 +113,7 @@ export default function Hero({ ready }) {
             {hasPhoto ? (
               <img
                 src={profile.photo}
-                alt={`Foto ${profile.fullName}`}
+                alt={`Photograph of ${profile.fullName}`}
                 onError={() => setHasPhoto(false)}
                 fetchPriority="high"
               />

@@ -39,9 +39,9 @@ export default function About() {
   return (
     <section className="section shell" id="about">
       <SectionHead
-        eyebrow="Tentang saya"
-        title="Ngoding karena senang, bukan cuma karena bisa"
-        desc="Sedikit latar belakang tentang cara saya bekerja dan hal-hal yang saya pedulikan."
+        eyebrow="About"
+        title="Where I come from and how I work"
+        desc="A brief background on the way I work and the things I pay attention to."
       />
 
       <div className="about__grid">

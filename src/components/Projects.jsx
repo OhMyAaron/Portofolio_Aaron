@@ -10,7 +10,7 @@ function ProjectCard({ project, index }) {
   const primary = project.links[0]
 
   const thumb = project.image ? (
-    <img src={project.image} alt={`Tangkapan layar ${project.title}`} loading="lazy" />
+    <img src={project.image} alt={`Screenshot of ${project.title}`} loading="lazy" />
   ) : (
     <span className="card__ph">{project.title.slice(0, 2).toUpperCase()}</span>
   )
@@ -24,8 +24,8 @@ function ProjectCard({ project, index }) {
         <span className="card__spot" />
         <span className="card__year mono">{project.year}</span>
 
-        {/* Gambarnya jadi tautan ke repo utama kalau ada — di situlah kursor
-            "LIHAT" muncul. Kalau proyeknya tanpa tautan, cukup <div> biasa. */}
+        {/* Gambarnya jadi tautan ke tautan utama kalau ada — di situlah kursor
+            "VIEW" muncul. Kalau proyeknya tanpa tautan, cukup <div> biasa. */}
         {primary ? (
           <a
             className="card__thumb"
@@ -33,7 +33,7 @@ function ProjectCard({ project, index }) {
             target="_blank"
             rel="noreferrer"
             data-cursor="view"
-            aria-label={`Buka ${project.title} di GitHub`}
+            aria-label={`Open ${project.title}`}
           >
             {thumb}
           </a>
@@ -76,17 +76,17 @@ function ProjectCard({ project, index }) {
 }
 
 export default function Projects() {
-  const categories = useMemo(() => ['Semua', ...new Set(projects.map((p) => p.category))], [])
-  const [filter, setFilter] = useState('Semua')
+  const categories = useMemo(() => ['All', ...new Set(projects.map((p) => p.category))], [])
+  const [filter, setFilter] = useState('All')
 
-  const shown = filter === 'Semua' ? projects : projects.filter((p) => p.category === filter)
+  const shown = filter === 'All' ? projects : projects.filter((p) => p.category === filter)
 
   return (
     <section className="section shell" id="work">
       <SectionHead
-        eyebrow="Proyek"
-        title="Yang pernah saya bangun"
-        desc="Sebagian kodenya bisa dibuka langsung di GitHub lewat tautan pada tiap kartu."
+        eyebrow="Projects"
+        title="Selected work"
+        desc="Source code for several of these is available on GitHub through the links on each card."
       />
 
       <div className="projects__filters">

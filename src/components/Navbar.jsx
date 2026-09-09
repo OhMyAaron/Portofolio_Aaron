@@ -44,7 +44,7 @@ export default function Navbar() {
   return (
     <>
       <header className={`nav ${stuck ? 'is-stuck' : ''}`}>
-        <nav className="shell nav__row" aria-label="Navigasi utama">
+        <nav className="shell nav__row" aria-label="Main navigation">
           <a
             className="nav__logo"
             href="#top"
@@ -73,14 +73,14 @@ export default function Navbar() {
           </ul>
 
           <div className="nav__side">
-            <div className="palette" role="group" aria-label="Warna aksen">
+            <div className="palette" role="group" aria-label="Accent color">
               {accents.map((a) => (
                 <button
                   key={a.id}
                   type="button"
                   className="palette__swatch"
                   style={{ background: a.color }}
-                  aria-label={`Warna aksen ${a.label}`}
+                  aria-label={`${a.label} accent`}
                   aria-pressed={accent === a.id}
                   onClick={() => setAccent(a.id)}
                 />
@@ -90,7 +90,7 @@ export default function Navbar() {
             <button
               type="button"
               className={`burger ${open ? 'is-open' : ''}`}
-              aria-label={open ? 'Tutup menu' : 'Buka menu'}
+              aria-label={open ? 'Close menu' : 'Open menu'}
               aria-expanded={open}
               onClick={() => setOpen((v) => !v)}
             >
@@ -117,7 +117,7 @@ export default function Navbar() {
               type="button"
               className="palette__swatch"
               style={{ background: a.color }}
-              aria-label={`Warna aksen ${a.label}`}
+              aria-label={`${a.label} accent`}
               aria-pressed={accent === a.id}
               onClick={() => setAccent(a.id)}
             />

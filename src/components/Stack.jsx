@@ -14,9 +14,9 @@ export default function Stack() {
   return (
     <section className="section shell" id="stack">
       <SectionHead
-        eyebrow="Keahlian"
-        title="Alat yang saya pakai sehari-hari"
-        desc="Bahasa, framework, dan perkakas yang saya pakai untuk kuliah, proyek, maupun kegiatan organisasi."
+        eyebrow="Skills"
+        title="The tools I work with day to day"
+        desc="The languages, frameworks, and tools I rely on for coursework, personal projects, and organizational work."
       />
 
       <div className="stack__groups">
