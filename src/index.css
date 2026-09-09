@@ -1,0 +1,4 @@
+/* Entry point styling — urutan import penting: token dulu, baru turunannya */
+@import './styles/base.css';
+@import './styles/layout.css';
+@import './styles/components.css';
