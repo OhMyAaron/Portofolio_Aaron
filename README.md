@@ -112,6 +112,25 @@ Saran ukuran: sisi terpanjang sekitar 1200–1600 px, rasio potret, di bawah ~40
 Kalau `image` dikosongkan, kartunya otomatis memakai placeholder inisial bergradasi — tetap rapi.
 Beri `featured: true` untuk membuat satu kartu melebar dua kolom di layar besar.
 
+### Tautan pada kartu proyek
+
+Satu proyek bisa punya beberapa repo (misalnya frontend dan backend terpisah), jadi tautannya
+berupa daftar:
+
+```js
+links: [
+  { label: 'Frontend', href: 'https://github.com/OhMyAaron/nama-fe' },
+  { label: 'Backend', href: 'https://github.com/OhMyAaron/nama-be' },
+],
+```
+
+Setiap entri jadi satu tombol di bagian bawah kartu, dan tautan **pertama** juga dipasang pada
+gambar kartunya. Proyek tanpa tautan cukup ditulis `links: []` — tombolnya tidak muncul dan
+gambarnya tidak bisa diklik.
+
+> Pastikan repo yang ditautkan berstatus **public**. Repo private tetap bisa ditautkan, tapi
+> pengunjung yang mengekliknya hanya akan melihat halaman 404 GitHub.
+
 ---
 
 ## Ganti warna tema

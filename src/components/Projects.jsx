@@ -7,39 +7,44 @@ import SectionHead from './SectionHead'
 
 function ProjectCard({ project, index }) {
   const ref = useTilt({ max: 5 })
+  const primary = project.links[0]
+
+  const thumb = project.image ? (
+    <img src={project.image} alt={`Tangkapan layar ${project.title}`} loading="lazy" />
+  ) : (
+    <span className="card__ph">{project.title.slice(0, 2).toUpperCase()}</span>
+  )
 
   return (
-    <Reveal
-      className={project.featured ? 'card--featured' : ''}
-      delay={(index % 3) * 0.09}
-      y={44}
-      key={project.title}
-    >
-      <a
-        ref={ref}
-        className={`card ${project.featured ? 'card--featured' : ''}`}
-        href={project.href}
-        target={project.href.startsWith('http') ? '_blank' : undefined}
-        rel="noreferrer"
-        data-cursor="view"
-      >
+    <Reveal className={project.featured ? 'card--featured' : ''} delay={(index % 3) * 0.09} y={44}>
+      {/* Kartunya sengaja <article>, bukan <a>. Satu proyek bisa punya
+          beberapa tautan (frontend & backend terpisah), dan tautan di dalam
+          tautan bukan HTML yang sah. */}
+      <article ref={ref} className={`card ${project.featured ? 'card--featured' : ''}`}>
         <span className="card__spot" />
         <span className="card__year mono">{project.year}</span>
 
-        <div className="card__thumb">
-          {project.image ? (
-            <img src={project.image} alt={`Tangkapan layar ${project.title}`} loading="lazy" />
-          ) : (
-            <span className="card__ph">{project.title.slice(0, 2).toUpperCase()}</span>
-          )}
-        </div>
+        {/* Gambarnya jadi tautan ke repo utama kalau ada — di situlah kursor
+            "LIHAT" muncul. Kalau proyeknya tanpa tautan, cukup <div> biasa. */}
+        {primary ? (
+          <a
+            className="card__thumb"
+            href={primary.href}
+            target="_blank"
+            rel="noreferrer"
+            data-cursor="view"
+            aria-label={`Buka ${project.title} di GitHub`}
+          >
+            {thumb}
+          </a>
+        ) : (
+          <div className="card__thumb">{thumb}</div>
+        )}
 
         <div className="card__body">
-          <div className="card__title">
-            <h3>{project.title}</h3>
-            <ArrowUpRight className="card__arrow" width={18} height={18} />
-          </div>
+          <h3 className="card__title">{project.title}</h3>
           <p className="card__desc">{project.desc}</p>
+
           <ul className="card__tags">
             {project.tags.map((t) => (
               <li className="tag" key={t}>
@@ -47,17 +52,31 @@ function ProjectCard({ project, index }) {
               </li>
             ))}
           </ul>
+
+          {project.links.length > 0 && (
+            <div className="card__links">
+              {project.links.map((link) => (
+                <a
+                  key={link.href}
+                  className="card__link"
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {link.label}
+                  <ArrowUpRight width={15} height={15} />
+                </a>
+              ))}
+            </div>
+          )}
         </div>
-      </a>
+      </article>
     </Reveal>
   )
 }
 
 export default function Projects() {
-  const categories = useMemo(
-    () => ['Semua', ...new Set(projects.map((p) => p.category))],
-    [],
-  )
+  const categories = useMemo(() => ['Semua', ...new Set(projects.map((p) => p.category))], [])
   const [filter, setFilter] = useState('Semua')
 
   const shown = filter === 'Semua' ? projects : projects.filter((p) => p.category === filter)
@@ -67,7 +86,7 @@ export default function Projects() {
       <SectionHead
         eyebrow="Proyek"
         title="Yang pernah saya bangun"
-        desc="Masih sedikit dan sengaja hanya yang benar-benar saya kerjakan sendiri. Akan bertambah."
+        desc="Sebagian kodenya bisa dibuka langsung di GitHub lewat tautan pada tiap kartu."
       />
 
       <div className="projects__filters">

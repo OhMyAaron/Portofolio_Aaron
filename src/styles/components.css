@@ -616,6 +616,7 @@
 }
 
 .card__thumb {
+  display: grid;
   position: relative;
   aspect-ratio: 16 / 10;
   overflow: hidden;
@@ -674,22 +675,7 @@
 }
 
 .card__title {
-  display: flex;
-  align-items: center;
-  gap: 10px;
   margin-bottom: 10px;
-}
-
-.card__arrow {
-  color: var(--a1);
-  opacity: 0;
-  transform: translate(-6px, 6px);
-  transition: 0.4s var(--ease);
-}
-
-.card:hover .card__arrow {
-  opacity: 1;
-  transform: none;
 }
 
 .card__desc {
@@ -707,6 +693,43 @@
 .card__tags .tag {
   font-size: 0.75rem;
   padding: 5px 10px;
+}
+
+.card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 99px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-dim);
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: 0.3s var(--ease);
+}
+
+.card__link:hover {
+  color: #0b0b12;
+  background: var(--grad);
+  border-color: transparent;
+}
+
+.card__link svg {
+  transition: transform 0.35s var(--ease);
+}
+
+.card__link:hover svg {
+  transform: translate(2px, -2px);
 }
 
 /* proyek unggulan mengambil dua kolom di layar lebar */

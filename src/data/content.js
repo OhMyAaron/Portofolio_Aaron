@@ -137,7 +137,7 @@ export const stackGroups = [
   {
     icon: 'layout',
     title: 'Pengembangan Web',
-    items: ['Laravel', 'React', 'REST API', 'MySQL', 'Blade', 'Vite'],
+    items: ['Laravel', 'React', 'REST API', 'MySQL', 'Blade', 'Tailwind CSS', 'Vite'],
   },
   {
     icon: 'tool',
@@ -188,7 +188,7 @@ export const projects = [
       'Sistem untuk memantau progres proyek yang sedang berjalan agar statusnya terlihat dalam ' +
       'satu tampilan, sekaligus rancangan pengembangan dashboard berbasis AI.',
     tags: ['React', 'Laravel', 'MySQL', 'Dashboard'],
-    href: '#',
+    links: [], // sistem internal perusahaan, tidak ada repo publik
     image: '',
   },
   {
@@ -199,9 +199,26 @@ export const projects = [
       'Proyek tugas akhir: REST API Laravel dengan dashboard admin React. Mencakup autentikasi ' +
       'berbasis peran, manajemen data master, serta notifikasi email otomatis.',
     tags: ['Laravel', 'React', 'MySQL', 'REST API'],
-    href: '#',
+    // Kedua repo ini masih PRIVATE. Selama belum diubah jadi public, pengunjung
+    // yang mengekliknya akan mendapat halaman 404 GitHub.
+    links: [
+      { label: 'Frontend', href: 'https://github.com/OhMyAaron/karinakas_frontend' },
+      { label: 'Backend', href: 'https://github.com/OhMyAaron/karinakas_backend' },
+    ],
     image: '',
     featured: true,
+  },
+  {
+    title: 'GYM — Manajemen Keanggotaan',
+    category: 'Fullstack',
+    year: '2024',
+    desc:
+      'Aplikasi web pengelolaan pusat kebugaran dengan tiga tingkat keanggotaan (Basic, Pro, ' +
+      'Premium). Mencakup pendataan personal trainer, inventaris produk, pencatatan transaksi, ' +
+      'serta dashboard admin terpisah untuk paket, pembayaran, anggota, pelatih, dan laporan.',
+    tags: ['Laravel', 'Blade', 'Tailwind CSS', 'MySQL'],
+    links: [{ label: 'Repo', href: 'https://github.com/OhMyAaron/PemrogramanWeb_GYM' }],
+    image: '',
   },
   {
     title: 'Website Portofolio Ini',
@@ -211,7 +228,7 @@ export const projects = [
       'Situs statis satu halaman tanpa backend. Seluruh animasinya ditulis manual dengan CSS dan ' +
       'requestAnimationFrame, tanpa library animasi, agar tetap ringan dibuka.',
     tags: ['React', 'Vite', 'CSS'],
-    href: 'https://github.com/OhMyAaron',
+    links: [{ label: 'Repo', href: 'https://github.com/OhMyAaron/Portofolio_Aaron' }],
     image: '',
   },
 
@@ -226,11 +243,12 @@ export const projects = [
     year: '2026',
     desc:
       'Satu sampai dua kalimat. Tulis masalah yang diselesaikan lalu hasilnya, ' +
-      'bukan sekadar daftar fitur. Contoh: "Data proyek tersebar di banyak file ' +
-      'Excel, jadi dibuat satu tampilan yang menarik semuanya secara otomatis."',
+      'bukan sekadar daftar fitur.',
     tags: ['React', 'Laravel', 'MySQL'],   // teknologi, bukan istilah umum
-    href: '#',      // link repo atau demo. Biarkan '#' kalau belum/tidak boleh ada
-    image: '',      // '/projects/nama-file.png' kalau punya screenshot
+    links: [                                // boleh kosong: links: []
+      { label: 'Repo', href: 'https://github.com/OhMyAaron/nama-repo' },
+    ],
+    image: '',        // '/projects/nama-file.png' kalau punya screenshot
     // featured: true,   // aktifkan kalau ingin kartunya melebar dua kolom
   },
 
